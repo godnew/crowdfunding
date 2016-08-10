@@ -13,7 +13,7 @@ input[type=button], input[type=submit], input[type=file], button {
     -webkit-appearance: none;
 }
 input,button,textarea{outline:none;border: none;}
-body,input,button,h1,h2,h3,h4,h5,h6,label{font-family:"苹方";font-weight: normal;}
+body,input,button,h1,h2,h3,h4,h5,h6,label{font-family:"苹方";font-weight: normal;font-size: 12px;}
 textarea{resize: none}
 
 
