@@ -1,0 +1,12 @@
+body{
+    margin-top: 0.88rem;
+    background: #f2f2f2;
+}
+.head{
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 0.8rem;
+    -moz-border-radius: 0.8rem;
+    margin:0 auto;
+
+}
