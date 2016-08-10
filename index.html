@@ -15,5 +15,116 @@
 </head>
 <body>
     <header>首页<b></b></header>
+    <div id="banner_tabs" class="flexslider">
+        <ul class="slides">
+            <li>
+                <a title="" target="_blank" href="#">
+                    <img alt="" style="width:100%;height: 3.5rem;" src="images/index/banner1.png" class="bannerSlider">
+                </a>
+            </li>
+            <li>
+                <a title="" href="#">
+                    <img alt="" style="width:100%;height: 3.5rem;" src="images/index/banner2.png" class="bannerSlider">
+                </a>
+            </li>
+            <li>
+                <a title="" href="#">
+                    <img alt="" style="width:100%;height: 3.5rem;" src="images/index/banner1.png" class="bannerSlider">
+                </a>
+            </li>
+            <li>
+                <a title="" href="#">
+                    <img alt="" style="width:100%;height: 3.5rem;" src="images/index/banner2.png" class="bannerSlider">
+                </a>
+            </li>
+            <li>
+                <a title="" href="#">
+                    <img alt="" style="width:100%;height: 3.5rem;" src="images/index/banner2.png" class="bannerSlider">
+                </a>
+            </li>
+        </ul>
+        <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+            <li class="active"><a>1</a></li>
+            <li><a>2</a></li>
+            <li><a>3</a></li>
+            <li><a>4</a></li>
+            <li><a>5</a></li>
+        </ol>
+    </div>
+    <img src="images/index/banner2.png" alt="" id="banner"/>
+    <h1>猜你喜欢</h1>
+    <ul id="content">
+        <li>
+            <img src="images/index/thing1.png" alt=""/>
+            <div>
+                <p>征服者的入门之书《历史的赢法· 用军》</p>
+                <div><div class="container"><div class="child"></div></div><span class="num">80%</span></div>
+                <div>已筹资&nbsp;&nbsp;<span>¥ 14999</span>支持数&nbsp;&nbsp;<span>213</span></div>
+            </div>
+        </li>
+        <li>
+            <img src="images/index/thing2.png" alt=""/>
+            <div>
+                <p>怀旧利器，回归童年！今天你拍 洋画了吗？经典图书...</p>
+                <div><div class="container"><div class="child"></div></div><span class="num">60%</span></div>
+                <div>已筹资&nbsp;&nbsp;<span>¥ 14999</span>支持数&nbsp;&nbsp;<span>213</span></div>
+            </div>
+        </li>
+    </ul>
+    <footer>
+        <ul class="df pr30 pl30 jcsa">
+            <li>
+                <p class="active">首页</p>
+            </li>
+            <li>
+                <p >众筹</p>
+            </li>
+            <li>
+                <p >发布</p>
+            </li>
+            <li>
+                <p >我的</p>
+            </li>
+        </ul>
+    </footer>
+
+    <script src="js/slider.js"></script>
+    <script src="js/touch-0.2.11-min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var bannerSlider = new Slider($('#banner_tabs'), {
+                time: 5000,
+                delay: 400,
+                event: 'hover',
+                auto: true,
+                mode: 'fade',
+                controller: $('#bannerCtrl'),
+                activeControllerCls: 'active'
+            });
+//            touch.config(
+//                    {
+//                        tap: true,                  //tap类事件开关, 默认为true
+//                        doubleTap: true,            //doubleTap事件开关， 默认为true
+//                        hold: true,                 //hold事件开关, 默认为true
+//                        holdTime: 650,              //hold时间长度
+//                        swipe: true,                //swipe事件开关
+//                        swipeTime: 300,             //触发swipe事件的最大时长
+//                        swipeMinDistance: 18,       //swipe移动最小距离
+//                        swipeFactor: 5,             //加速因子, 值越大变化速率越快
+//                        drag: true,                 //drag事件开关
+//                        pinch: true,                //pinch类事件开关
+//                    }
+//            );
+            touch.on('.bannerSlider', 'swipeleft', function(ev){
+                bannerSlider.next();
+            });
+            touch.on('.bannerSlider', 'swiperight', function(ev){
+                bannerSlider.prev();
+            });
+            for(var i=0;i<$(".child").length;i++){
+                $(".child").eq(i).css('width',parseInt($(".num").eq(i).text())+"%");
+            }
+        })
+    </script>
 </body>
 </html>
