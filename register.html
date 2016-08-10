@@ -10,11 +10,20 @@
     <link href="style/reset.css" rel="stylesheet" type="text/css">
     <link href="style/base.css" rel="stylesheet" type="text/css">
     <link href="style/header.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="style/login.css"/>
+    <link rel="stylesheet" href="style/register.css"/>
     <title>注册</title>
 </head>
 <body>
-<header><span onclick="javascript:history.go(-1)"></span>注册</header>
+    <header><span onclick="javascript:history.go(-1)"></span>注册</header>
+    <form action="">
+        <ul class="form">
+            <li><input type="text" placeholder="请输入手机号"/></li>
+            <li><input type="text" placeholder="请输入验证码"/><span id="confirm">获取验证码</span></li>
+            <li><input type="password" placeholder="请输入密码"/></li>
+            <li><input type="password" placeholder="请确认密码"/></li>
+            <li><input type="submit" value="完&nbsp;&nbsp;&nbsp;&nbsp;成"/></li>
+        </ul>
+    </form>
 
 </body>
 </html>
