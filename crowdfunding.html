@@ -14,7 +14,134 @@
     <title>众筹</title>
 </head>
 <body>
-<header>众筹</header>
-
+    <header>众筹<b id="select">筛选</b></header>
+    <nav>
+        <div>搜索</div>
+    </nav>
+    <ul class="df nav jcsb aic">
+        <li>时间</li>
+        <li>目标金额</li>
+        <li>筹集进度</li>
+        <li>参与人数</li>
+    </ul>
+    <ul id="content">
+        <li>
+            <div class="container">
+                <img src="images/crowdfunding/banner.png" alt="" class="banner"/>
+                <p class="intro">&nbsp;一起来开一家设计师主题咖啡馆@安的咖啡</p>
+            </div>
+            <div class="message">
+                <div>
+                    <div class="parent"><div class="child"></div></div>
+                    <div class="target">40%(目标¥10万)<span class="point"></span></div>
+                </div>
+                <div>
+                    <p class="people">115人参与</p>
+                    <p class="day">剩余15天结束</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="container">
+                <img src="images/crowdfunding/banner.png" alt="" class="banner"/>
+                <p class="intro">&nbsp;一起来开一家设计师主题咖啡馆@安的咖啡</p>
+            </div>
+            <div class="message">
+                <div>
+                    <div class="parent"><div class="child"></div></div>
+                    <div class="target">40%(目标¥10万)<span class="point"></span></div>
+                </div>
+                <div>
+                    <p class="people">115人参与</p>
+                    <p class="day">剩余15天结束</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <footer>
+        <ul class="df pr30 pl30 jcsa">
+            <li>
+                <p>首页</p>
+            </li>
+            <li>
+                <p class="active" >众筹</p>
+            </li>
+            <li>
+                <p >发布</p>
+            </li>
+            <li>
+                <p >我的</p>
+            </li>
+        </ul>
+    </footer>
+    <div class="bg" style="display: none;">
+        <div class="select">
+            <div class="df mt30 ml30">
+                <div class="g9 f1">行业筛选：</div>
+                <div class="g6 ml10 mr10 f1 add1 act all">全部</div>
+                <ul class="g6 df fww ctr ctr1">
+                    <li class="add1">公益</li>
+                    <li class="add1">农业</li>
+                    <li class="add1">出版</li>
+                    <li class="add1">娱乐</li>
+                    <li class="add1">艺术</li>
+                    <li class="add1">其他</li>
+                </ul>
+            </div>
+            <div class="df mt30 ml30">
+                <div class="g9 f1">项目进程：</div>
+                <div class="g6 ml10 mr10 f1 act add2 all">全部</div>
+                <ul class="g6 df fww ctr ctr2">
+                    <li class="add2">众筹中</li>
+                    <li class="add2">将要结束</li>
+                    <li class="add2">即将结束</li>
+                </ul>
+            </div>
+            <div class="df mt30 ml30">
+                <div class="g9 f1">项目城市：</div>
+                <div class="g6 ml10 mr10 f1 act add3 all">全部</div>
+                <ul class="g6 df fww ctr ctr3">
+                    <li class="add3">武汉站</li>
+                    <li class="add3">河南站</li>
+                    <li class="add3">苏州站</li>
+                    <li class="add3">重庆站</li>
+                    <li class="add3">烟台站</li>
+                    <li class="add3">广州站</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            for(var i=0;i<$(".child").length;i++){
+                $(".child").eq(i).css("width",parseInt($(".target").eq(i).text())+'%');
+            }
+            $("#select").click(function(){
+                if($(".bg").is(":visible")){
+                    $(this).html("筛选");
+                    $(".bg").hide();
+                    document.documentElement.style.overflow='auto';
+                    document.body.style.overflow='auto';
+                }else{
+                    $(this).html("完成");
+                    $(".bg").show();
+                    document.documentElement.style.overflow='hidden';
+                    document.body.style.overflow='hidden';
+                }
+            });
+            $(".add1").click(function(){
+                $(".add1").removeClass("act");
+                if(!$(this).hasClass("act"))$(this).addClass("act");
+            });
+            $(".add2").click(function(){
+                $(".add2").removeClass("act");
+                if(!$(this).hasClass("act"))$(this).addClass("act");
+            });
+            $(".add3").click(function(){
+                $(".add3").removeClass("act");
+                if(!$(this).hasClass("act"))$(this).addClass("act");
+            });
+        })
+    </script>
 </body>
 </html>
