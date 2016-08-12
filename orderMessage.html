@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/orderMessage.css"/>
+    <title>订单信息</title>
+</head>
+<body>
+<header><span onclick="javascript:history.go(-1)"></span>订单信息</header>
+<h1>感谢您的无私奉献</h1>
+<form action="">
+    <div class="pl30 pr30 bgwh">
+        <ul class="df jcsb money">
+            <li class="active">10元</li>
+            <li>20元</li>
+            <li>50元</li>
+        </ul>
+        <div class="pt15 pb15"><input type="text" placeholder="支持其他金额(不低于1元)"/></div>
+    </div>
+    <div class="df jcsb aic pl30 pr30 bgwh mt20 all"><span>支持总额</span><span id="money">¥10</span></div>
+    <input type="submit" value="提交订单"/>
+</form>
+
+<script>
+    $(function(){
+        $(".money").find("li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $("#money").text("¥"+$(this).html().slice(0,-1));
+        });
+    })
+</script>
+</body>
+</html>
