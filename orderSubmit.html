@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/orderSubmit.css"/>
+    <title>订单信息</title>
+</head>
+<body>
+<header><span onclick="javascript:history.go(-1)"></span>订单信息</header>
+<h1>一起来开一家设计师主题咖啡@安的咖啡</h1>
+<table>
+    <tbody>
+        <tr >
+            <td class="pl30 pt20" width="22%">收货人：</td>
+            <td class="pt20">张三</td>
+        </tr>
+        <tr>
+            <td class="pl30" width="22%" valign="top">收货地址：</td>
+            <td>上海市松江区松江大学城1888弄8888号18楼318室</td>
+        </tr>
+        <tr >
+            <td class="pl30 pb20" width="22%">联系方式：</td>
+            <td class="pb20">15813425684</td>
+        </tr>
+    </tbody>
+</table>
+<form action="">
+    <ul class="mt20 bgwh">
+        <li class="df jcsb pr30 pl30"><span>支持金额</span><span id="one">¥19.00</span></li>
+        <li class="df jcsb pr30 pl30"><span>份数</span><div><span id="dec">-</span><span id="count">1</span><span id="add">+</span></div></li>
+        <li class="df jcsb pr30 pl30"><span>支持总额</span><span id="all">¥19.00</span></li>
+        <li class="df jcsb pr30 pl30"><span>备注</span><input type="text" placeholder="（选填，对于订单的特殊要求等）" class="fx1"/></li>
+    </ul>
+    <input type="submit" value="提交订单"/>
+</form>
+
+<script>
+    $(function(){
+        var re=/\d+(\.\d+)?/g;
+        var onePrice=$("#one").html();
+        var num=$("#count");
+        onePrice=parseFloat(onePrice.match(re)).toFixed(2);
+        var all=$("#all");
+        function count(){
+            all.html('¥'+(onePrice*parseInt(num.html())).toFixed(2));
+        }
+        $("#dec").click(function(){
+            var n=parseInt(num.html());
+            if(n>1){
+                n--
+            }
+            num.html(n);
+            count();
+        });
+        $("#add").click(function(){
+            var n=parseInt(num.html());
+            n++;
+            num.html(n);
+            count();
+        });
+        count();
+
+    })
+</script>
+</body>
+</html>
