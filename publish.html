@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/publish.css"/>
+    <title>发布</title>
+</head>
+<body>
+<header>发布<b>帮助</b></header>
+<nav>
+    <ul class="df jcsb">
+        <li>
+            <div class="activeTop">1</div>
+            <p class="tc f26 activeBottom">基本信息</p>
+        </li>
+        <li>
+            <div>2</div>
+            <p class="tc f26">项目信息</p>
+        </li>
+        <li>
+            <div>3</div>
+            <p class="tc f26">回报设置</p>
+        </li>
+        <li>
+            <div>4</div>
+            <p class="tc f26">完成</p>
+        </li>
+    </ul>
+</nav>
+<form action="">
+    <ul class="bgwh">
+        <li class="df pr30 pl30"><label class="f26" for="name">姓名</label><input type="text" id="name" name="name" placeholder="请填写姓名"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="id">身份证号</label><input type="text" id="id" name="id" placeholder="请填写身份证号"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="phone">手机号</label><input type="text" id="phone" name="phone" placeholder="请填写手机号"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="address">地址</label><input type="text" id="address" name="address" placeholder="请选择区域" disabled class="select"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="adetail">详细地址</label><input type="text" id="adetail" name="adetail" placeholder="请填写详细地址（非必填）"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="type">类型</label><input type="text" id="type" name="type" placeholder="请选择类型" disabled class="select"/></li>
+    </ul>
+    <div class="df pl30 aic bgwh"><span class="f26">上传相关<br/>照片资料</span><div id="file"><input type="file" class="opa0"/></div></div>
+    <input type="submit" value="下一步"/>
+</form>
+<footer>
+    <ul class="df pr30 pl30 jcsa">
+        <li>
+            <p>首页</p>
+        </li>
+        <li>
+            <p >众筹</p>
+        </li>
+        <li>
+            <p  class="active">发布</p>
+        </li>
+        <li>
+            <p >我的</p>
+        </li>
+    </ul>
+</footer>
+</body>
+</html>

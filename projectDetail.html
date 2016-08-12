@@ -63,7 +63,7 @@
 </ul>
 <footer class="df">
     <div></div>
-    <div class="fx1">我要支持</div>
+    <div class="fx1" id="support">我要支持</div>
 </footer>
 <div class="am-share">
     <h3 class="am-share-title tc">分享到</h3>
@@ -107,6 +107,9 @@
         $("#share").click(function(){
             toshare();
         });
+        if(money==0){
+            $("#support").css("background","#aaa");
+        }
     });
 </script>
 </body>
