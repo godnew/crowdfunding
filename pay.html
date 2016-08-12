@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/pay.css"/>
+    <title>支付页面</title>
+</head>
+<body>
+<header><span onclick="javascript:history.go(-1)"></span>支付页面</header>
+<div class="mt20 f26 bgwh df pr30 pl30 jcsb all"><span>合计支付</span><span class="g6">¥19.00</span></div>
+<div class="mt20 f26 bgwh df pr30 pl30 jcsb all"><span>优惠券</span><span class="useOr">无优惠券可用</span></div>
+<form action="">
+    <ul class="mt20 bgwh">
+        <li class=" f26 bgwh df pr30 pl30 jcsb all bte"><label for="money" class="f26">还需支付</label><input type="text" id="money" name="money" disabled value="¥19.00"/></li>
+        <li class=" f26 bgwh df pr30 pl30 jcsb all bte aic"><label for="qb" class="f26">钱包支付</label><input type="radio" name="method" id="qb"/></li>
+        <li class=" f26 bgwh df pr30 pl30 jcsb all bte aic"><label for="wx" class="f26">微信支付</label><input type="radio" name="method" id="wx"/></li>
+        <li class=" f26 bgwh df pr30 pl30 jcsb all bte aic"><label for="zfb" class="f26">支付宝支付</label><input type="radio" name="method" id="zfb"/></li>
+    </ul>
+    <input type="submit" value="确认提交"/>
+</form>
+
+<script>
+    $(function(){
+        function getid(id) { return document.getElementById(id); }
+        function gettag(tag, obj) { if (obj) { return obj.getElementsByTagName(tag) } else { return document.getElementsByTagName(tag) } }
+        (function radio_style() {//3设置样式
+            if (gettag("input")) {
+                var r = gettag("input");
+                function select_element(obj, type) {//1设置背景图片
+                    obj.parentNode.style.background = "url(images/selected.png) no-repeat 6.7rem center";
+                    obj.parentNode.style.backgroundSize = "0.5rem 0.5rem";
+                    if (obj.type == "checkbox") { obj.parentNode.style.background = "url(images/payMethod/button.gif) no-repeat right center";obj.parentNode.style.backgroundSize = "0.3rem 0.3rem"; }
+                    if (type) {
+                        obj.parentNode.style.background = "url(images/select.png) no-repeat 6.7rem center";
+                        obj.parentNode.style.backgroundSize = "0.5rem 0.5rem";
+                        if (obj.type == "checkbox") { obj.parentNode.style.background = "url(images/payMethod/button.gif) no-repeat right center"; obj.parentNode.style.backgroundSize = "0.3rem 0.3rem";}
+                    }
+                }
+                for (var i = 0; i < r.length; i++) {
+                    if (r[i].type == "radio" || r[i].type == "checkbox") {
+                        r[i].style.opacity = 0; r[i].style.filter = "alpha(opacity=0)";//隐藏真实的checkbox和radio
+                        r[i].onclick = function() { select_element(this); unfocus(); }
+                        if (r[i].checked == true) { select_element(r[i]); } else { select_element(r[i], 1); }
+                    }
+                }
+                function unfocus() {//2处理未选中
+                    for (var i = 0; i < r.length; i++) {
+                        if (r[i].type == "radio" || r[i].type == "checkbox") { if (r[i].checked == false) { select_element(r[i], 1) } }
+                    }
+                }
+            }
+        })();
+    });
+</script>
+</body>
+</html>
