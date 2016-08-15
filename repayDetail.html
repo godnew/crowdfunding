@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/repayDetail.css"/>
+    <title>项目详情</title>
+</head>
+<body>
+    <header><span onclick="javascript:history.go(-1)"></span>&nbsp;&nbsp;回报<b id="del">删除</b></header>
+    <nav>
+        <ul class="df f28">
+            <li class="fx1 tc active first" index="1">实物回报</li>
+            <li class="fx1 tc second" index="2">虚拟回报</li>
+            <li class="fx1 tc third" index="3">抽奖回报</li>
+        </ul>
+    </nav>
+    <form action="">
+        <ul class="bgwh content1">
+            <li class="df pr30 pl30"><label class="f26" for="money">支持金额</label><input type="text" id="money" name="money" placeholder="输入支持金额"/></li>
+            <li class="df pr30 pl30"><label class="f26" for="title">回报标题</label><input type="text" id="title" name="title" placeholder="输入回报标题"/></li>
+            <li class="df pr30 pl30 con"><label class="f26" for="rcontent">回报内容</label><input type="text" id="rcontent" name="rcontent" placeholder="请填回报内容"/></li>
+            <li class="df pr30 pl30"><label class="f26" for="pnum">人员上限(个)</label><input type="text" id="pnum" name="pnum" placeholder="“0”为不限名额"/></li>
+            <li class="df pr30 pl30"><label class="f26" for="fare">运费设置(元)</label><input type="text" id="fare" name="fare" placeholder="“0”为不收运费"/></li>
+            <li class="df pr30 pl30"><label class="f26" for="day">回报时间(天)</label><input type="text" id="day" name="day" placeholder="“0”为项目结束后立即发送"/></li>
+            <li><div class="df pl30 aic bgwh"><span class="f26">上传照片</span><div id="file"><input type="file" class="opa0"/></div><span class="intro">支持jpg、jpeg、png、 gif格式，大小不超过 500KB。(选填)</span></div></li>
+        </ul>
+        <ul class="bgwh content2 dn">
+            <li class="df pr30 pl30"><label class="f26" for="money1">支持金额(元)</label><input type="text" id="money1" name="money1" placeholder="输入用户需要支持的金额"/></li>
+            <li class="df pr30 pl30">选择支持者可填信息(可多选)</li>
+            <li class="df pr30 pl30 df jcsb aic support"><span class="span"><input type="checkbox" name="support"/><b>手机号</b></span><span class="span"><input type="checkbox" name="support"/><b>邮箱</b></span><span class="span"><input type="checkbox" name="support"/><b>姓名</b></span></li>
+            <li class="df pr30 pl30"><label class="f26" for="t">回报标题</label><input type="text" id="t" name="t" placeholder="请填写回报标题"/></li>
+            <li class="df pr30 pl30 con"><label class="f26" for="c">回报内容</label><input type="text" id="c" name="c" placeholder="请填写回报内容"/></li>
+            <li class="df pr30 pl30"><label class="f26" for="pnum1">人员上限(个)</label><input type="text" id="pnum1" name="pnum1" placeholder="“0”为不限名额"/></li>
+            <li class="df pr30 pl30"><label class="f26" for="day1">回报时间(天)</label><input type="text" id="day1" name="day1" placeholder="“0”为项目结束后立即发送"/></li>
+            <li><div class="df pl30 aic bgwh"><span class="f26">上传照片</span><div id="file1"><input type="file" class="opa0"/></div><span class="intro">支持jpg、jpeg、png、 gif格式，大小不超过 500KB。(选填)</span></div></li>
+        </ul>
+        <ul class="bgwh content3 dn">
+            <li class="df pr30 pl30"><label class="f26" for="money2">支持金额(元)</label><input type="text" id="money2" name="money2" placeholder="输入用户需要支持的金额"/></li>
+            <li class="df pr30 pl30"><label class="f26" for="count">奖品个数</label><input type="text" id="count" name="count" placeholder="请填写回报标题"/></li>
+            <li class="df pr30 pl30 con"><label class="f26" for="c1">回报内容</label><input type="text" id="c1" name="c1" placeholder="请填写回报内容"/></li>
+            <li class="df pr30 pl30"><label class="f26" for="pnum2">人数(人)</label><input type="text" id="pnum2" name="pnum2" placeholder="此人数为每次开奖人数"/></li>
+            <li class="df pr30 pl30"><label class="f26" for="day2">回报时间(天)</label><input type="text" id="day2" name="day2" placeholder="“0”为项目结束后立即发送"/></li>
+            <li><div class="df pl30 aic bgwh"><span class="f26">上传照片</span><div id="file2"><input type="file" class="opa0"/></div><span class="intro">支持jpg、jpeg、png、 gif格式，大小不超过 500KB。(选填)</span></div></li>
+        </ul>
+        <input type="submit" value="完成"/>
+    </form>
+    <div class="am-share">
+        <h3 class="am-share-title tc">确定删除此回报？</h3>
+        <div class="df jcsb aic"><button class="share_btn">是</button><button class="share_btn">否</button></div>
+    </div>
+<script>
+    $(function(){
+        $("nav ul li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            switch (parseInt($(this).attr('index'))){
+                case 1:
+                    $(".content1").css("display","block");
+                    $(".content2").css("display","none");
+                    $(".content3").css("display","none");
+                    break;
+                case 2:
+                    $(".content1").css("display","none");
+                    $(".content2").css("display","block");
+                    $(".content3").css("display","none");
+                    break;
+                case 3:
+                    $(".content1").css("display","none");
+                    $(".content2").css("display","none");
+                    $(".content3").css("display","block");
+                    break;
+                default : break;
+            }
+        });
+        function toshare(){
+            $(".am-share").css("display","block");
+            if($(".sharebg").length>0){
+                $(".sharebg").addClass("sharebg-active");
+            }else{
+                $("body").append('<div class="sharebg"></div>');
+                $(".sharebg").addClass("sharebg-active");
+            }
+            document.documentElement.style.overflow='hidden';
+            document.body.style.overflow='hidden';
+            $(".sharebg-active,.share_btn").click(function(){
+                $(".am-share").css("display","none");
+                setTimeout(function(){
+                    $(".sharebg-active").removeClass("sharebg-active");
+                    $(".sharebg").remove();
+                },300);
+                document.documentElement.style.overflow='auto';
+                document.body.style.overflow='auto';
+            })
+        }
+        $("#del").click(function(){
+            toshare();
+        });
+        $(".support b").click(function(){
+            if(!$(this).parent().hasClass("active2")){
+                $(this).parent().addClass("active2");
+                $(this).css("color","#2d9cff");
+                $(this).siblings("input").prop("checked",true);
+
+            }else{
+                $(this).parent().removeClass("active2");
+                $(this).css("color","#999");
+                $(this).siblings("input").prop("checked",false);
+            }
+        });
+    });
+</script>
+</body>
+</html>
