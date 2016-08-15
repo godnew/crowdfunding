@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/repay.css"/>
+    <title>项目回报</title>
+</head>
+<body>
+<header>&nbsp;&nbsp;&nbsp;&nbsp;发布<b>帮助</b></header>
+<nav>
+    <ul class="df jcsb">
+        <li>
+            <div class="activeTop">1</div>
+            <p class="tc f26">基本信息</p>
+        </li>
+        <li>
+            <div class="activeTop">2</div>
+            <p class="tc f26">项目信息</p>
+        </li>
+        <li>
+            <div class="activeTop">3</div>
+            <p class="tc f26 activeBottom">回报设置</p>
+        </li>
+        <li>
+            <div>4</div>
+            <p class="tc f26">完成</p>
+        </li>
+    </ul>
+</nav>
+<form action="">
+    <ul class="bgwh">
+        <li class="df pr30 pl30"><label class="f26" for="r1">回报1</label><input type="text" id="r1" name="r1" placeholder="" disabled class="select"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="r2">回报2</label><input type="text" id="r2" name="r2" placeholder="" disabled class="select"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="r3">回报3</label><input type="text" id="r3" name="r3" placeholder="" disabled class="select"/></li>
+        <li class="pr30 pl30 tc g9 f26" id="add">点击添加回报</li>
+    </ul>
+    <input type="submit" value="提交"/>
+</form>
+<footer>
+    <ul class="df pr30 pl30 jcsa">
+        <li>
+            <p>首页</p>
+        </li>
+        <li>
+            <p >众筹</p>
+        </li>
+        <li>
+            <p  class="active">发布</p>
+        </li>
+        <li>
+            <p >我的</p>
+        </li>
+    </ul>
+</footer>
+<script>
+    $(function(){
+        $("#add").click(function(){
+            var txt=$(this).prev().find("label").text();
+            var id=txt.slice(2);
+            id++;
+            $(this).before('<li class="df pr30 pl30"><label class="f26" for="r'+id+'">回报'+id+'</label><input type="text" id="r'+id+'" name="r'+id+'" placeholder="" disabled class="select"/></li>');
+        });
+    });
+</script>
+</body>
+</html>
