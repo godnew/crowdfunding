@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/projectMessage.css"/>
+    <title>发布</title>
+</head>
+<body>
+<header>发布<b>帮助</b></header>
+<nav>
+    <ul class="df jcsb">
+        <li>
+            <div class="activeTop">1</div>
+            <p class="tc f26">基本信息</p>
+        </li>
+        <li>
+            <div  class="activeTop">2</div>
+            <p class="tc f26 activeBottom">项目信息</p>
+        </li>
+        <li>
+            <div>3</div>
+            <p class="tc f26">回报设置</p>
+        </li>
+        <li>
+            <div>4</div>
+            <p class="tc f26">完成</p>
+        </li>
+    </ul>
+</nav>
+<form action="">
+    <ul class="bgwh">
+        <li class="df pr30 pl30"><label class="f26" for="name">项目标题</label><input type="text" id="name" name="name" placeholder="请填写标题"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="id">筹款目的</label><input type="text" id="id" name="id" placeholder="请填写筹款目的"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="address">项目地点</label><input type="text" id="address" name="address" placeholder="请选择项目地点" disabled class="select"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="money">筹资金额</label><input type="text" id="money" name="money" placeholder="请填写筹资金额，最低500"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="day">筹资天数</label><input type="text" id="day" name="day" placeholder="请填写筹资天数，10-90天"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="label">筹资天数</label><input type="text" id="label" name="label" placeholder="标签之间用逗号隔开，最多三个"/></li>
+    </ul>
+    <div class="df pl30 aic bgwh"><span class="f26">设置封面</span><div id="file"><input type="file" class="opa0"/></div></div>
+    <input type="submit" value="下一步"/>
+</form>
+<footer>
+    <ul class="df pr30 pl30 jcsa">
+        <li>
+            <p>首页</p>
+        </li>
+        <li>
+            <p >众筹</p>
+        </li>
+        <li>
+            <p  class="active">发布</p>
+        </li>
+        <li>
+            <p >我的</p>
+        </li>
+    </ul>
+</footer>
+</body>
+</html>
