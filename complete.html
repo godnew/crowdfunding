@@ -1,10 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
     <meta charset="UTF-8">
-    <title></title>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/complete.css"/>
+    <title>完成</title>
 </head>
 <body>
-
+<header>&nbsp;&nbsp;&nbsp;&nbsp;发布<b>帮助</b></header>
+<nav>
+    <ul class="df jcsb">
+        <li>
+            <div class="activeTop">1</div>
+            <p class="tc f26">基本信息</p>
+        </li>
+        <li>
+            <div class="activeTop">2</div>
+            <p class="tc f26">项目信息</p>
+        </li>
+        <li>
+            <div class="activeTop">3</div>
+            <p class="tc f26">回报设置</p>
+        </li>
+        <li>
+            <div class="activeTop">4</div>
+            <p class="tc f26 activeBottom">完成</p>
+        </li>
+    </ul>
+</nav>
+<img src="images/complete.png" alt="" style="margin:auto;margin-top: 0.8rem;width: 1.42rem;height: 0.89rem;"/>
+<p class="tc f26 mt30">发布成功，正在审核中......</p>
+<button id="btn">继续发布</button>
+<footer>
+    <ul class="df pr30 pl30 jcsa">
+        <li>
+            <p>首页</p>
+        </li>
+        <li>
+            <p >众筹</p>
+        </li>
+        <li>
+            <p  class="active">发布</p>
+        </li>
+        <li>
+            <p >我的</p>
+        </li>
+    </ul>
+</footer>
+<script>
+    $(function(){
+        $("#add").click(function(){
+            var txt=$(this).prev().find("label").text();
+            var id=txt.slice(2);
+            id++;
+            $(this).before('<li class="df pr30 pl30"><label class="f26" for="r'+id+'">回报'+id+'</label><input type="text" id="r'+id+'" name="r'+id+'" placeholder="" disabled class="select"/></li>');
+        });
+    });
+</script>
 </body>
 </html>
