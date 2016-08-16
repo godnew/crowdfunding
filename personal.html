@@ -14,22 +14,58 @@
     <title>个人资料</title>
 </head>
 <body>
-<header><span onclick="javascript:history.go(-1)"></span>个人资料</header>
+<header><span onclick="javascript:history.go(-1)"></span>&nbsp;&nbsp;个人资料<b>保存</b></header>
+<form action="">
 <ul>
-    <li class="mt20"><span class="f26 g9">头像</span><img src="images/mine/head.png" alt="" style="width: 0.88rem;height: 0.88rem;"/></li>
-    <li><span class="f26 g9">昵称</span><span class="f26 g32">LY0134XA</span></li>
-    <li><span class="f26 g9">性别</span><span class="f26 g9">请选择性别</span></li>
-    <li class="mt20"><span class="f26 g9">手机号</span><span class="f26 g32">18118122322</span></li>
-    <li><span class="f26 g9">邮箱</span><span class="f26 g9">请绑定邮箱</span></li>
-    <li class="mt20"><span class="f26 g9">个性签名</span><span class="f26 g9">您还没有个性签名</span></li>
-    <li><span class="f26 g9">所在地</span><span class="f26 g9">请选择所在地</span></li>
-    <li><span class="f26 g9">收货地址</span><span class="f26 g9"></span></li>
-    <li class="mt20"><span class="f26 g9">实名认证</span><span class="f26 g9">请进行实名认证</span></li>
-    <li><span class="f26 g9">修改密码</span><span class="f26 g9"></span></li>
+    <li class="mt20"><span class="f26 g9">头像</span><div><img src="images/mine/head.png" alt="" style="width: 0.88rem;height: 0.88rem;"/><input type="file" name="file"  capture="camera"></div></li>
+    <li><span class="f26 g9">昵称</span><input type="text" value="LY031XA" class="f26 g32" disabled/></li>
+    <li id="sex"><span class="f26 g9">性别</span><input type="text" placeholder="请选择性别" class="f26 g32" disabled name="sex"/></li>
+    <li class="mt20"><span class="f26 g9">手机号</span><input type="text" value="18118122322" class="f26 g32" disabled/></li>
+    <li><span class="f26 g9">邮箱</span><input type="text" placeholder="请输入邮箱" class="f26 g32" disabled/></li>
+    <li class="mt20"><span class="f26 g9">个性签名</span><input type="text" placeholder="您还没有个性签名" class="f26 g32" disabled/></li>
+    <li><span class="f26 g9">所在地</span><input type="text" placeholder="请选择所在地" class="f26 g32" disabled/></li>
+    <li><span class="f26 g9">收货地址</span><input type="text" class="f26 g32" disabled/></li>
+    <li class="mt20"><span class="f26 g9">实名认证</span><input type="text" placeholder="请进行实名认证" class="f26 g32" disabled/></li>
+    <li><span class="f26 g9">修改密码</span><input type="text"  class="f26 g32" disabled/></li>
 </ul>
-<button id="btn">退出登录</button>
-<script>
+</form>
 
+<button id="btn">退出登录</button>
+<div class="am-share">
+   <p class="share_btn">男</p>
+   <p class="share_btn">女</p>
+   <p class="share_btn">保密</p>
+</div>
+<script>
+    $(function(){
+    function toshare(){
+        $(".am-share").css("display","block");
+        if($(".sharebg").length>0){
+            $(".sharebg").addClass("sharebg-active");
+        }else{
+            $("body").append('<div class="sharebg"></div>');
+            $(".sharebg").addClass("sharebg-active");
+        }
+        document.documentElement.style.overflow='hidden';
+        document.body.style.overflow='hidden';
+        $(".sharebg-active,.share_btn").click(function(){
+            if($(this).hasClass("share_btn")){
+                var value=$(this).html();
+                $("input[name='sex']").val(value);
+            }
+            $(".am-share").css("display","none");
+            setTimeout(function(){
+                $(".sharebg-active").removeClass("sharebg-active");
+                $(".sharebg").remove();
+            },300);
+            document.documentElement.style.overflow='auto';
+            document.body.style.overflow='auto';
+        })
+    }
+    $("#sex").click(function(e){
+        toshare();
+    });
+    });
 </script>
 </body>
 </html>
