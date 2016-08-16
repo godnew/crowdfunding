@@ -27,6 +27,10 @@
         <div class="df jcsb mt30"><div><input type="radio" id="a2" name="select"/><label class="f26 g32 ml20" for="a2">设置默认</label></div><div><span class="change">编辑</span><span class="del">删除</span></div></div>
     </li>
 </ul>
+<div class="am-share">
+    <h3 class="am-share-title tc">确定删除？</h3>
+    <div class="df jcsb aic"><button class="share_btn yes">是</button><button class="share_btn">否</button></div>
+</div>
 <script>
     $(function(){
         function getid(id) { return document.getElementById(id); }
@@ -59,7 +63,28 @@
             }
         })();
         $(".del").click(function(){
-            $(this).parents("li").remove();
+            var self=$(this);
+            $(".am-share").css("display","block");
+            if($(".sharebg").length>0){
+                $(".sharebg").addClass("sharebg-active");
+            }else{
+                $("body").append('<div class="sharebg"></div>');
+                $(".sharebg").addClass("sharebg-active");
+            }
+            document.documentElement.style.overflow='hidden';
+            document.body.style.overflow='hidden';
+            $(".sharebg-active,.share_btn").click(function(){
+                if($(this).hasClass("yes")){
+                    self.parents("li").remove();
+                }
+                $(".am-share").css("display","none");
+                setTimeout(function(){
+                    $(".sharebg-active").removeClass("sharebg-active");
+                    $(".sharebg").remove();
+                },300);
+                document.documentElement.style.overflow='auto';
+                document.body.style.overflow='auto';
+            })
         });
     });
 </script>
