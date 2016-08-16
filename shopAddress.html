@@ -1,10 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
     <meta charset="UTF-8">
-    <title></title>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/shopAddress.css"/>
+    <title>收货地址</title>
 </head>
 <body>
-
+<header><span onclick="javascript:history.go(-1)"></span>收货地址</header>
+<ul>
+    <li>
+        <p class="df jcsb"><span>张三</span><span>15813425684</span></p>
+        <p>上海市松江区松江大学城1888弄8888号   天心创业园区 18楼318室</p>
+        <div class="df jcsb mt30"><div><input type="radio" id="a1" name="select"/><label class="f26 g32 ml20" for="a1">默认地址</label></div><div><span class="change">编辑</span><span class="del">删除</span></div></div>
+    </li>
+    <li>
+        <p class="df jcsb"><span>张三</span><span>15813425684</span></p>
+        <p>上海市松江区松江大学城1888弄8888号   天心创业园区 18楼318室</p>
+        <div class="df jcsb mt30"><div><input type="radio" id="a2" name="select"/><label class="f26 g32 ml20" for="a2">设置默认</label></div><div><span class="change">编辑</span><span class="del">删除</span></div></div>
+    </li>
+</ul>
+<script>
+    $(function(){
+        function getid(id) { return document.getElementById(id); }
+        function gettag(tag, obj) { if (obj) { return obj.getElementsByTagName(tag) } else { return document.getElementsByTagName(tag) } }
+        (function radio_style() {//3设置样式
+            if (gettag("input")) {
+                var r = gettag("input");
+                function select_element(obj, type) {//1设置背景图片
+                    obj.parentNode.style.background = "url(images/selected.png) no-repeat left center";
+                    obj.parentNode.style.backgroundSize = "0.3rem 0.3rem";
+                    if (obj.type == "checkbox") { obj.parentNode.style.background = "url(images/payMethod/button.gif) no-repeat left center";obj.parentNode.style.backgroundSize = "0.3rem 0.3rem"; }
+                    if (type) {
+                        obj.parentNode.style.background = "url(images/select.png) no-repeat left center";
+                        obj.parentNode.style.backgroundSize = "0.3rem 0.3rem";
+                        if (obj.type == "checkbox") { obj.parentNode.style.background = "url(images/payMethod/button.gif) no-repeat left center"; obj.parentNode.style.backgroundSize = "0.3rem 0.3rem";}
+                    }
+                }
+                for (var i = 0; i < r.length; i++) {
+                    if (r[i].type == "radio" || r[i].type == "checkbox") {
+                        r[i].style.opacity = 0; r[i].style.filter = "alpha(opacity=0)";//隐藏真实的checkbox和radio
+                        r[i].onclick = function() { select_element(this); unfocus();$("input").siblings("label").html("设置默认"); $(this).siblings("label").html("默认地址");}
+                        if (r[i].checked == true) { select_element(r[i]); } else { select_element(r[i], 1); }
+                    }
+                }
+                function unfocus() {//2处理未选中
+                    for (var i = 0; i < r.length; i++) {
+                        if (r[i].type == "radio" || r[i].type == "checkbox") { if (r[i].checked == false) { select_element(r[i], 1) } }
+                    }
+                }
+            }
+        })();
+        $(".del").click(function(){
+            $(this).parents("li").remove();
+        });
+    });
+</script>
 </body>
 </html>
