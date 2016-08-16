@@ -1,0 +1,29 @@
+body{
+    background: #f2f2f2;
+}
+ul li{
+    padding:0 0.77rem 0 0.3rem;
+    height: 0.88rem;
+    border-bottom: 1px solid #f2f2f2;
+    background:#fff url(../images/right.png) no-repeat 7.04rem center;
+    background-size: 0.16rem 0.25rem ;
+    -webkit-background-size: 0.16rem 0.25rem;
+    -o-background-size: 0.16rem 0.25rem;
+    display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;
+    -moz-justify-content: space-between;-webkit-justify-content: space-between;justify-content: space-between;
+    -webkit-box-align: center;-moz-align-items: center;-webkit-align-items: center;align-items: center;
+}
+ul li:first-child{
+    height: 1.3rem;
+}
+#btn{
+    display: block;
+    width: 6.3rem;
+    margin:0 auto;
+    margin-top: 0.3rem;
+    line-height: 0.77rem;
+    color: #fff;
+    font-size:0.26rem ;
+    border-radius: 0.1rem;
+    background: #2d9cff;
+}
