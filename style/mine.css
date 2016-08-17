@@ -23,6 +23,9 @@ header p span{
     -webkit-background-size: 0.26rem 0.16rem;
     -o-background-size: 0.26rem 0.16rem;
 }
+.background{
+    background: url(../images/mine/up.png) no-repeat right center;
+}
 .content li{
     height: 0.88rem;
     color: #323232;
@@ -77,4 +80,27 @@ footer ul li p{
 }
 .active{
     color: #2d9cff;
+}
+.show div{
+    line-height: 0.7rem;
+}
+.recharge{
+    font-size: 0.26rem;
+    color: #323232;
+    padding-left: 0.65rem;
+    display: inline-block;
+    background: url(../images/mine/recharge.png) no-repeat left center;
+    background-size: 0.4rem 0.4rem;
+    -o-background-size: 0.4rem 0.4rem;
+    -webkit-background-size: 0.4rem 0.4rem;
+}
+.withdraw{
+    font-size: 0.26rem;
+    color: #323232;
+    padding-left: 0.65rem;
+    display: inline-block;
+    background: url(../images/mine/withdraw.png) no-repeat left center;
+    background-size: 0.4rem 0.4rem;
+    -o-background-size: 0.4rem 0.4rem;
+    -webkit-background-size: 0.4rem 0.4rem;
 }

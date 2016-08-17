@@ -17,8 +17,9 @@
         <h1 class="tc f32 wh lh100">我的</h1>
         <img src="images/mine/head.png" alt=""/>
         <p class="tc wh f26">LY0134XA</p>
-        <p class="lh100 tc f28 wh">资产管理<span>￥80,000.00</span></p>
+        <p class="lh100 tc f28 wh" id="manage">资产管理<span id="bg">￥80,000.00</span></p>
     </header>
+    <div class="df show pt10 pb10 bgwh" style="display: none;"><div class="fx1 tc bre"><span class="recharge">充值</span></div><div class="fx1 tc"><span class="withdraw">提现</span></div></div>
     <ul class="content">
         <li class="df aic pl30 f26 mt20"><img src="images/mine/icon1.png" alt="" style="width: 0.44rem;height: 0.44rem;margin-right: 0.2rem;"/>我的项目</li>
         <li class="df aic pl30 f26"><img src="images/mine/icon2.png" alt="" style="width: 0.44rem;height: 0.44rem;margin-right: 0.2rem;"/>我的订单</li>
@@ -43,7 +44,13 @@
         </ul>
     </footer>
 <script>
-
+    $(function(){
+        $("#manage").click(function(){
+            var self=$(this);
+            $(".show").toggle();
+            $("#bg").toggleClass("background");
+        });
+    });
 </script>
 </body>
 </html>
