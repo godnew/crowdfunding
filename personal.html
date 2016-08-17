@@ -36,6 +36,10 @@
    <p class="share_btn">女</p>
    <p class="share_btn">保密</p>
 </div>
+<div class="am-share1">
+    <h3 class="am-share-title1 tc">是否退出登录？</h3>
+    <div class="df jcsb aic"><button class="share_btn1 yes">是</button><button class="share_btn1">否</button></div>
+</div>
 <script>
     $(function(){
     function toshare(){
@@ -62,9 +66,33 @@
             document.body.style.overflow='auto';
         })
     }
-    $("#sex").click(function(e){
+        $("#sex").click(function(e){
         toshare();
-    });
+     });
+        $("#btn").click(function(){
+            var self=$(this);
+            $(".am-share1").css("display","block");
+            if($(".sharebg1").length>0){
+                $(".sharebg1").addClass("sharebg-active1");
+            }else{
+                $("body").append('<div class="sharebg1"></div>');
+                $(".sharebg1").addClass("sharebg-active1");
+            }
+            document.documentElement.style.overflow='hidden';
+            document.body.style.overflow='hidden';
+            $(".sharebg-active1,.share_btn1").click(function(){
+                if($(this).hasClass("yes")){
+                    self.parents("li").remove();
+                }
+                $(".am-share1").css("display","none");
+                setTimeout(function(){
+                    $(".sharebg-active1").removeClass("sharebg-active1");
+                    $(".sharebg1").remove();
+                },300);
+                document.documentElement.style.overflow='auto';
+                document.body.style.overflow='auto';
+            })
+        });
     });
 </script>
 </body>
