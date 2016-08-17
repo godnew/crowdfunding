@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/idIdentify.css"/>
+    <title>实名认证</title>
+</head>
+<body>
+<header><span onclick="javascript:history.go(-1)"></span>实名认证</header>
+<form action="">
+    <div class="txt"><label for="name" class="f26 g9 ml30">真实姓名：</label><input type="text" id="name" name="name" placeholder="请输入您的真实姓名"/></div>
+    <div class="txt"><label for="id" class="f26 g9 ml30">身份证号：</label><input type="text" id="id" name="id" placeholder="请输入和您姓名匹配的身份证号"/></div>
+    <div class="photo mt20 rel">
+        <label id="imgdiv" for="up_img"><img id="imgShow" width="650" height="400" style="width: 6.5rem;height: 4rem;" /></label>
+        <input type="file" id="up_img" />
+    </div>
+    <div class="photo mt30 rel">
+        <label id="imgdiv1" for="up_img1"><img id="imgShow1" width="650" height="400" style="width: 6.5rem;height: 4rem;"/></label>
+        <input type="file" id="up_img1" />
+    </div>
+    <input type="submit" value="申请认证"/>
+</form>
+<script src="js/uploadPreview.js"></script>
+<script>
+    $(function(){
+        new uploadPreview({ UpBtn: "up_img", DivShow: "imgdiv", ImgShow: "imgShow" });
+        new uploadPreview({ UpBtn: "up_img1", DivShow: "imgdiv1", ImgShow: "imgShow1" });
+    });
+</script>
+</body>
+</html>
