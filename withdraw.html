@@ -10,16 +10,16 @@
     <link href="style/reset.css" rel="stylesheet" type="text/css">
     <link href="style/base.css" rel="stylesheet" type="text/css">
     <link href="style/header.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="style/recharge.css"/>
-    <title>充值</title>
+    <link rel="stylesheet" href="style/withdraw.css"/>
+    <title>提现</title>
 </head>
 <body>
-<header><span onclick="javascript:history.go(-1)"></span>充值</header>
+<header><span onclick="javascript:history.go(-1)"></span>提现</header>
 <form action="">
     <ul class="bgwh content1">
-        <li class="df pr30 pl30"><label class="f26" for="name">姓名</label><input type="text" id="name" name="name" placeholder="请输入姓名"/></li>
+        <li class="df pr30 pl30"><label class="f26" for="name">持有人</label><input type="text" id="name" name="name" placeholder="请输入姓名"/></li>
         <li class="df pr30 pl30">
-            <label class="f26" for="bank">支付银行</label>
+            <label class="f26" for="bank">提现银行</label>
             <select name="bank" id="bank" class="background">
                 <option value="default"><p>请选择支付银行</p></option>
                 <option value="工行"><p>工商银行</p></option>
@@ -27,11 +27,13 @@
                 <option value="交行"><p>交通银行</p></option>
             </select>
         </li>
-        <li class="df pr30 pl30"><label class="f26" for="id">银行卡号</label><input type="text" id="id" name="id" placeholder="请输入银行卡号"/></li>
-        <li class="pr30 pl30"><label class="f26" for="money">充值金额</label><input type="text" id="money" name="money" placeholder="请输入充值金额"/>元</li>
+        <li class="df pr30 pl30"><label class="f26" for="id">可提现金额</label><input type="text" id="id" name="id" value="2000.00" disabled/></li>
+        <li class="pr30 pl30"><label class="f26" for="money">本次提现金额</label><input type="text" id="money" name="money" placeholder="请输入提现金额"/>元</li>
+        <li class="df pr30 pl30"><input type="text" id="pass" name="pass" placeholder="请输入短信验证码"/><span id="get">获取验证码</span></li>
     </ul>
-    <input type="submit" value="充  值"/>
+    <input type="submit" value="确认提现"/>
 </form>
+<p>提现手续费：2.00元（手续费从提现金额中扣除，因此 2元以下无法提现）</p>
 <script>
     $(function(){
         $("select").change(function(){
