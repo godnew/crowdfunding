@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.js"></script>
+    <link href="style/reset.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/recharge.css"/>
+    <title>充值</title>
+</head>
+<body>
+<header><span onclick="javascript:history.go(-1)"></span>充值</header>
+<form action="">
+    <ul class="bgwh content1">
+        <li class="df pr30 pl30"><label class="f26" for="name">姓名</label><input type="text" id="name" name="name" placeholder="请输入姓名"/></li>
+        <li class="df pr30 pl30">
+            <label class="f26" for="bank">回报标题</label>
+            <select name="bank" id="bank" class="background">
+                <option value="default"><p>请选择支付银行</p></option>
+                <option value="工行"><p>工商银行</p></option>
+                <option value="农行"><p>农业银行</p></option>
+                <option value="交行"><p>交通银行</p></option>
+            </select>
+        </li>
+        <li class="df pr30 pl30"><label class="f26" for="id">银行卡号</label><input type="text" id="id" name="id" placeholder="请输入银行卡号"/></li>
+        <li class="pr30 pl30"><label class="f26" for="money">充值金额</label><input type="text" id="money" name="money" placeholder="请输入充值金额"/>元</li>
+    </ul>
+    <input type="submit" value="完成"/>
+</form>
+<script>
+    $(function(){
+        $("select").change(function(){
+            if($(this).val()!="default"){
+                $(this).css("paddingLeft","0.68rem");
+            }else{
+                $(this).css("paddingLeft","0");
+            }
+            switch($(this).val()){
+                case "工行":$(this).css("backgroundImage","url(images/bank.png)");
+                    break;
+                default :$(this).css("backgroundImage","url()");
+                    break;
+            }
+        });
+    });
+</script>
+</body>
+</html>
