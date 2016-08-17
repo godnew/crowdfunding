@@ -1,0 +1,10 @@
+nav ul li{
+    height: 0.84rem;
+    font-size: 0.3rem;
+    color: #aaaaaa;
+    line-height: 0.84rem;
+}
+.active{
+    color: #2d9cff;
+    border-bottom: 0.04rem solid #2d9cff;
+}
